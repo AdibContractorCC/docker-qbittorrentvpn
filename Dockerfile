@@ -8,6 +8,12 @@ RUN usermod -u 99 nobody
 # Make directories
 RUN mkdir -p /downloads /config/qBittorrent /etc/openvpn /etc/qbittorrent
 
+# Install sudo
+RUN apt update \
+    && apt upgrade -y  \
+    && apt install -y --no-install-recommends \
+    sudo
+
 # Install boost
 RUN apt update \
     && apt upgrade -y  \
